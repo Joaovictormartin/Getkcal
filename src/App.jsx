@@ -1,14 +1,13 @@
+import { Home } from "./pages/Home";
 import { Header } from "./components/Header";
 import { GlobalStyle } from "./styles/global";
 
-
-function App() {
+export function App() {
   return (
     <>
       <Header />
+      <Home />
       <GlobalStyle />
     </>
   );
 }
-
-export default App;
