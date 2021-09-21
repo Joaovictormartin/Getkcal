@@ -43,7 +43,7 @@ export const Content = styled.div`
 
     border: 0;
     border-radius: 0.25rem;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: 600;
 
     cursor: pointer;
@@ -60,6 +60,6 @@ export const WraperLabel = styled.div`
 `;
 
 export const Label = styled.p`
-  font-size: 1rem;
+  font-size: 1.1rem;
 `;
 
