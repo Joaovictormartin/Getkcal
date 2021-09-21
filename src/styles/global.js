@@ -46,7 +46,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   [disabled] {
-    opacity: 0.6;
+    opacity: 0.9;
     cursor: not-allowed;
   }
 
