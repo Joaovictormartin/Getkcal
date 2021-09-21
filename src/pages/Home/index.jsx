@@ -1,34 +1,31 @@
-import React, { useState, useCallback } from "react";
+import React, { useState } from "react";
+
+import { Result } from "../../components/Result";
 
 import { Container, Content, WraperLabel, Label } from "./styles";
 
 export function Home() {
-  const [sex, setSex] = useState("Masculino");
+  const [gender, setGender] = useState("");
   const [age, setAge] = useState("");
-  const [Weight, setWeight] = useState("");
-  const [Height, setHeight] = useState("");
-  const [activityLevel, setactivityLevel] = useState("");
-
-  const handleSubmit = useCallback((event) => {
-    event.preventDefault();
-
-  },[])
+  const [weight, setWeight] = useState("");
+  const [height, setHeight] = useState("");
+  const [activityLevel, setActivityLevel] = useState("");
+  const [toggle, setToggle] = useState(false);
 
   return (
     <Container>
       <Content>
-
         <WraperLabel>
           <Label>Seu sexo</Label>
         </WraperLabel>
-        <select 
-          id="sex" 
-          value={sex} 
-          onChange={(e) => setSex(e.target.value)}
+        <select
+          id="sex"
+          value={gender}
+          onChange={(e) => setGender(e.target.value)}
         >
           <option value=""></option>
-          <option value="masculino">Masculino</option>
-          <option value="feminino">Feminino</option>
+          <option value="male">Masculino</option>
+          <option value="female">Feminino</option>
         </select>
 
         <WraperLabel>
@@ -41,20 +38,20 @@ export function Home() {
         />
 
         <WraperLabel>
-          <Label>Seu peso</Label>          
+          <Label>Seu peso</Label>
         </WraperLabel>
         <input
           type="text"
-          value={Weight}
+          value={weight}
           onChange={(e) => setWeight(e.target.value)}
         />
 
         <WraperLabel>
-          <Label>Sua altura</Label> 
+          <Label>Sua altura</Label>
         </WraperLabel>
         <input
           type="text"
-          value={Height}
+          value={height}
           onChange={(e) => setHeight(e.target.value)}
         />
 
@@ -64,7 +61,7 @@ export function Home() {
         <select
           id="activityLevel"
           value={activityLevel}
-          onChange={(e) => setactivityLevel(e.target.value)}
+          onChange={(e) => setActivityLevel(e.target.value)}
         >
           <option value=""></option>
           <option value="1.2">Sedentário</option>
@@ -74,7 +71,19 @@ export function Home() {
           <option value="1.9">Atividade muito intensa</option>
         </select>
 
-        <button type="submit" onClick={handleSubmit}>Calcular</button>
+        <button type="submit" onClick={() => setToggle(!toggle)}>
+          Calcular
+        </button>
+
+        {toggle && (
+          <Result
+            gender={gender}
+            age={age}
+            weight={weight}
+            height={height}
+            activityLevel={activityLevel}
+          />
+        )}
       </Content>
     </Container>
   );
